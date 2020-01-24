@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/api/app"
-	"github.com/api/config"
+	"github.com/famous-persons-rest-api/app"
+	"github.com/famous-persons-rest-api/config"
 )
 
 func main() {

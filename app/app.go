@@ -5,9 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/api/app/handler"
-	"github.com/api/app/model"
-	"github.com/api/config"
+	"github.com/famous-persons-rest-api/app/handler"
+	"github.com/famous-persons-rest-api/app/model"
+	"github.com/famous-persons-rest-api/config"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
 )
