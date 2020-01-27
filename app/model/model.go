@@ -10,6 +10,7 @@ type Person struct {
 	Name        string `gorm:"unique" json:"name"`
 	Citizenship string `json:"citizenship"`
 	Occupation  string `json:"occupation"`
+	Birthday  	string `json:"birthday"`
 	Age         int    `json:"age"`
 	Status      bool   `json:"status"`
 }
