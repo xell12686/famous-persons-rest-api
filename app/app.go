@@ -41,11 +41,11 @@ func (a *App) setRouters() {
 	// Routing for handling the projects
 	a.Get("/persons", a.GetAllPersons)
 	a.Post("/persons", a.CreatePerson)
-	a.Get("/persons/{title}", a.GetPerson)
-	a.Put("/persons/{title}", a.UpdatePerson)
-	a.Delete("/persons/{title}", a.DeletePerson)
-	a.Put("/persons/{title}/disable", a.DisablePerson)
-	a.Put("/persons/{title}/enable", a.EnablePerson)
+	a.Get("/persons/{name}", a.GetPerson)
+	a.Put("/persons/{name}", a.UpdatePerson)
+	a.Delete("/persons/{name}", a.DeletePerson)
+	a.Put("/persons/{name}/disable", a.DisablePerson)
+	a.Put("/persons/{name}/enable", a.EnablePerson)
 }
 
 // Get : Wrap the router for GET method
