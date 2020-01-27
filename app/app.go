@@ -9,6 +9,7 @@ import (
 	"github.com/famous-persons-rest-api/app/model"
 	"github.com/famous-persons-rest-api/config"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/handlers"
 	"github.com/jinzhu/gorm"
 )
 
@@ -105,5 +106,8 @@ func (a *App) EnablePerson(w http.ResponseWriter, r *http.Request) {
 
 // Run the app on it's router
 func (a *App) Run(host string) {
-	log.Fatal(http.ListenAndServe(host, a.Router))
+	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
+	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})
+	origins := handlers.AllowedOrigins([]string{"*"})
+	log.Fatal(http.ListenAndServe(host, handlers.CORS(headers, methods, origins)(a.Router)))
 }
