@@ -7,7 +7,9 @@ import (
 
 type Person struct {
 	gorm.Model
-	Name        string `gorm:"unique" json:"name"`
+	// Id    		int    `gorm:"default:1" json:"id" `
+	// Name        string `gorm:"unique" json:"name"`
+	Name        string `json:"name"`
 	Citizenship string `json:"citizenship"`
 	Occupation  string `json:"occupation"`
 	Birthday  	string `json:"birthday"`
