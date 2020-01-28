@@ -107,7 +107,7 @@ func (a *App) EnablePerson(w http.ResponseWriter, r *http.Request) {
 // Run the app on it's router
 func (a *App) Run(host string) {
 	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
-	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})
+	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS", "DELETE"})
 	origins := handlers.AllowedOrigins([]string{"*"})
 	log.Fatal(http.ListenAndServe(host, handlers.CORS(headers, methods, origins)(a.Router)))
 }

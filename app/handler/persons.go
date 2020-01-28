@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"encoding/json"
 	"net/http"
 
@@ -12,6 +13,8 @@ import (
 func GetAllPersons(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 	persons := []model.Person{}
 	db.Find(&persons)
+	
+	fmt.Printf("all persons loaded...\n")
 	respondJSON(w, http.StatusOK, persons)
 }
 
@@ -29,6 +32,8 @@ func CreatePerson(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 		respondError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
+	
+	fmt.Printf("new person added...\n")
 	respondJSON(w, http.StatusCreated, person)
 }
 
@@ -63,6 +68,7 @@ func UpdatePerson(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 		respondError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
+	fmt.Printf("person edited...\n")
 	respondJSON(w, http.StatusOK, person)
 }
 
@@ -78,6 +84,7 @@ func DeletePerson(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 		respondError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
+	fmt.Printf("person deleted...\n")
 	respondJSON(w, http.StatusNoContent, nil)
 }
 
